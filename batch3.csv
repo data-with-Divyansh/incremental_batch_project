@@ -1,0 +1,11 @@
+permanentAddress,temporaryAddress,custid,products
+Pune,Hyderabad,cust003,ink
+Pune,Hyderabad,cust003,wire
+Hyderabad,Kolkata,cust004,pen
+Hyderabad,Kolkata,cust004,paper
+Pune,Hyderabad,cust005,ink
+Pune,Hyderabad,cust005,pen
+Chennai,Pune,cust006,pen
+Chennai,Pune,cust006,book
+Pune,Bangalore,cust007,bottle
+Pune,Bangalore,cust007,paper
