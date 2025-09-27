@@ -42,10 +42,12 @@ joindf = (df.join(df2,"custid","left_anti").drop("incid","batchid")
           )
 joindf.show()
 
-maxincid = df.select(max("incid")).collect()[0][0]
-print(maxincid)
-maxbatchid = df.select(max("batchid")).collect()[0][0]
-print(maxbatchid)
+maxincid = df.select(max("incid")).collect()[0][0]  # Fetch yesterday's max increment id
+#print(maxincid)
+maxbatchid = df.select(max("batchid")).collect()[0][0] # Fetch yesterday's batch id
+#print(maxbatchid)
+
+# Number today's batch data with correct incid and batchid using yesterday's maxincid and maxbatchid
 
 fdf = joindf.rdd.zipWithIndex().map(
     lambda row_index:row_index[0] + (row_index[1] + maxincid+1,)
