@@ -85,6 +85,6 @@ day3df = joindf2.rdd.zipWithIndex().map(
 ).toDF(joindf2.columns + ["incid"]).withColumn("batchid",lit(day2maxbatchid + 1))
 day3df.show()
 
-#day3df.write.format(local/sql/snowflake/s3).mode("append").save(targetlocation)
+#day3df.write.format("csv").mode("append").save(output/batch<num>)
 
 
