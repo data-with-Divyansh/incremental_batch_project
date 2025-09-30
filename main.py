@@ -29,7 +29,7 @@ day1df = (spark.read.csv("batch1.csv", sep=",", header="true")
           )
 day1df.show()
 
-#day1df.write.format(local/sql/snowflake/s3).mode("append").save(targetlocation)
+#day3df.write.format("csv").mode("append").save(output/batch0)
 
 ################### SECOND BATCH ##########################
 # Read second batch data and add deleteind column with all values as 0 initially
@@ -59,7 +59,7 @@ day2df = joindf.rdd.zipWithIndex().map(
 ).toDF(joindf.columns + ["incid"]).withColumn("batchid",lit(maxbatchid+1))
 day2df.show()
 
-#day2df.write.format(local/sql/snowflake/s3).mode("append").save(targetlocation)
+#day3df.write.format("csv").mode("append").save(output/batch1)
 
 ####################### THIRD BATCH ##########################
 
@@ -85,6 +85,6 @@ day3df = joindf2.rdd.zipWithIndex().map(
 ).toDF(joindf2.columns + ["incid"]).withColumn("batchid",lit(day2maxbatchid + 1))
 day3df.show()
 
-#day3df.write.format("csv").mode("append").save(output/batch<num>)
+#day3df.write.format("csv").mode("append").save(output/batch2)
 
 
