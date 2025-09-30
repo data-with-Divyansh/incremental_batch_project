@@ -1,5 +1,4 @@
 import os
-import sys
 from pyspark import SparkConf
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
